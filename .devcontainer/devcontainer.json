@@ -1,0 +1,15 @@
+{
+  "name": "DevOps Beadando DevContainer",
+  "build": {
+    "dockerfile": "Dockerfile.dev"
+  },
+  "forwardPorts": [5173],
+  "postCreateCommand": "npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+FROM node:20-alpine
+
+# Work directory inside the container
+WORKDIR /workspace
+
+# Install tools (optional but useful)
+RUN apk update && apk add bash
+
+# Default command when the container starts
+CMD ["bash"]
