@@ -1,127 +1,132 @@
-📘 DevOps Beadandó – Hello DevOps (React + Vite)
+# DevOps beadandó – Hello DevOps (React + Vite)
 
-Ez a projekt egy egyszerű, HTTP-n elérhető „Hello, DevOps!” alkalmazás React és Vite segítségével.
-A projekt célja az alap DevOps lépések bemutatása:
+Ez a projekt egy egyszerű, HTTP-n elérhető „Hello, DevOps!” alkalmazás React és Vite segítségével.  
+A cél az alap DevOps lépések bemutatása egy kis példán keresztül:
 
-✔ Kódkészítés
+- kódkészítés
+- buildelés
+- verziókezelés (trunk-based szemlélettel)
+- Docker konténerizálás
+- DevContainer használata (választott extra feladat)
 
-✔ Buildelés
+---
 
-✔ Verziókövetés (trunk-based elméletben, commitokkal igazolható)
+## 1. Alkalmazás futtatása fejlesztői módban
 
-✔ Docker konténerizálás
+A projekt mappájában:
 
-✔ DevContainer (opcionális bővítés – később hozzáadható)
-
-🚀 1. Alkalmazás futtatása
-
-A projekt indítása fejlesztői módban:
-
+```bash
 npm install
 npm run dev
+Ezután a böngészőben:
 
+URL: http://localhost:5173
 
-Ezután a böngészőben nyisd meg:
-👉 http://localhost:5173
+Az oldalon a „Hello, DevOps!” felirat jelenik meg.
 
-Itt látható a Hello, DevOps! felirat.
+2. Buildelés
+Production build készítése:
 
-🏗️ 2. Buildelés
-
-A production build elkészítése:
-
+bash
+Copy code
 npm run build
-
-
 A buildelt statikus fájlok a dist/ mappába kerülnek.
 
-🐳 3. Dockerizálás
-
-A projekt tartalmaz egy Dockerfile-t, amely:
+3. Dockerizálás
+A projekt tartalmaz egy Dockerfile fájlt, amely:
 
 elkészíti a React buildet,
 
-Nginx-be csomagolja,
+Nginx konténerbe csomagolja a dist tartalmát,
 
-a konténer indulásakor automatikusan elindítja a szervert.
+a konténer indulásakor automatikusan elindítja az Nginx szervert.
 
-Docker image buildelése:
+Docker image buildelése
+bash
+Copy code
 docker build -t hello-devops:v1 .
-
-Konténer futtatása:
+Konténer futtatása
+bash
+Copy code
 docker run --rm -p 8080:80 hello-devops:v1
-
-
 Ezután a böngészőben:
-👉 http://localhost:8080
 
-🌿 4. Verziókezelés (Git)
+URL: http://localhost:8080
 
-A projekt trunk-based fejlesztési modellt követ:
+4. Verziókezelés (Git, trunk-based)
+A projekt Git repóban van verziókezelve.
 
-main ág = trunk
+a main ág a „trunk”
 
-új funkciók külön feature/* branch-eken
+új módosításokhoz/fejlesztésekhez külön feature brancheket használok
+(pl. feature/readme-update)
 
-merge vissza a main-re értelmes commit üzenetekkel
+a változtatások értelmes commit üzenetekkel kerülnek be a repóba
 
-Példa commitokra:
+Példa commit üzenetek:
 
-feat: initial project setup
+feat: initial project setup with Hello DevOps app and Dockerfile
 
-feat: add Hello DevOps message
+feat: add extra line to README for feature branch testing
 
-feat: add Dockerfile
+feat: add DevContainer configuration
 
-🛠️ 5. DevContainer (opcionális, bővítés)
+docs: add DevContainer usage instructions to README
 
-A projekt kiegészíthető .devcontainer mappával, amely lehetővé teszi, hogy VS Code DevContainers-ben fusson.
+5. DevContainer (választott extra feladat)
+A projekt tartalmaz DevContainer konfigurációt, hogy Visual Studio Code-ból konténeres fejlesztői környezetben is futtatható legyen.
 
-🐳 6. DevContainer használata
+Struktúra:
 
-A projekt támogatja a DevContaineres futtatást Visual Studio Code-ban.
+text
+Copy code
+.devcontainer/
+  ├─ Dockerfile.dev
+  └─ devcontainer.json
+DevContainer használata (VS Code)
+Visual Studio Code telepítése
 
-Hogyan indítható?
+„Dev Containers” bővítmény telepítése (Microsoft)
 
-Telepítsd a VS Code programot
+A projektmappa megnyitása VS Code-ban
 
-Telepítsd a következő bővítményt:
-👉 Dev Containers (Microsoft hivatalos)
+Bal alsó sarokban: „Reopen in Container”
 
-Nyisd meg a projekt mappáját VS Code-ban
+A VS Code ezután:
 
-A bal alsó sarokban kattints a zöld ikonra:
-“Reopen in Container”
+felépíti a .devcontainer/Dockerfile.dev alapján a fejlesztői konténert,
 
-VS Code automatikusan:
+lefuttatja a npm install parancsot a repóban,
 
-felépíti a .devcontainer/Dockerfile.dev konténert
+előkészíti a környezetet a fejlesztéshez.
 
-telepíti az npm csomagokat
+A konténeren belül a fejlesztői futtatás:
 
-előkészíti a fejlesztői környezetet
-
-Dev módban futtatáshoz:
+bash
+Copy code
 npm install
 npm run dev
+Böngészőben:
+
+URL: http://localhost:5173/
+
+6. Összefoglalás
+A projekt teljesíti a beadandó követelményeit:
+
+HTTP-n elérhető alkalmazás („Hello, DevOps!”)
+
+dokumentált build folyamat (npm run build)
+
+Dockerfile és dokumentált Docker build/futtatás
+
+Git verziókezelés, trunk + feature branch használatával
+
+DevContainer konfiguráció és annak használatának leírása
 
 
-Ezután a böngészőben nyisd meg:
-👉 http://localhost:5173/
-
-✔ Összefoglalás
-
-Ez a projekt megfelel a beadandó DevOps követelményeinek:
-
-HTTP-n elérhető app
-
-Buildelhető
-
-Docker konténer készíthető belőle
-
-Dokumentált parancsok
-
-Verziókezelési modell leírva"# T9LU1X-Devops-Beadando" 
 
 
-Ez egy extra sor a feature branch teszteléséhez.
+
+
+
+
