@@ -91,4 +91,4 @@ Docker konténer készíthető belőle
 
 Dokumentált parancsok
 
-Verziókezelési modell leírva
+Verziókezelési modell leírva"# T9LU1X-Devops-Beadando" 
