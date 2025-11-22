@@ -92,3 +92,6 @@ Docker konténer készíthető belőle
 Dokumentált parancsok
 
 Verziókezelési modell leírva"# T9LU1X-Devops-Beadando" 
+
+
+Ez egy extra sor a feature branch teszteléséhez.
