@@ -77,7 +77,37 @@ feat: add Dockerfile
 
 A projekt kiegészíthető .devcontainer mappával, amely lehetővé teszi, hogy VS Code DevContainers-ben fusson.
 
-(Kérésre ezt is elkészítem.)
+🐳 6. DevContainer használata
+
+A projekt támogatja a DevContaineres futtatást Visual Studio Code-ban.
+
+Hogyan indítható?
+
+Telepítsd a VS Code programot
+
+Telepítsd a következő bővítményt:
+👉 Dev Containers (Microsoft hivatalos)
+
+Nyisd meg a projekt mappáját VS Code-ban
+
+A bal alsó sarokban kattints a zöld ikonra:
+“Reopen in Container”
+
+VS Code automatikusan:
+
+felépíti a .devcontainer/Dockerfile.dev konténert
+
+telepíti az npm csomagokat
+
+előkészíti a fejlesztői környezetet
+
+Dev módban futtatáshoz:
+npm install
+npm run dev
+
+
+Ezután a böngészőben nyisd meg:
+👉 http://localhost:5173/
 
 ✔ Összefoglalás
 
