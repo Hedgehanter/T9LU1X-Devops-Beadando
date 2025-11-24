@@ -1,71 +1,68 @@
-📘 DevOps Beadandó – Hello DevOps (React + Vite)
+# DevOps beadandó – Hello DevOps (React + Vite)
 
-Ez a projekt egy egyszerű, HTTP-n elérhető „Hello, DevOps!” alkalmazás React és Vite segítségével.
-A projekt célja az alap DevOps lépések bemutatása:
+Ez a projekt egy egyszerű, HTTP-n elérhető „Hello, DevOps!” alkalmazás React és Vite segítségével.  
+A cél az alap DevOps lépések bemutatása:
 
-✔ Kódkészítés
+- kódkészítés
+- buildelés
+- verziókezelés (trunk-based megközelítés)
+- Docker konténerizálás
+- DevContainer használata (választott extra feladat)
 
-✔ Buildelés
+---
 
-✔ Verziókövetés (trunk-based elméletben, commitokkal igazolható)
-
-✔ Docker konténerizálás
-
-✔ DevContainer (opcionális bővítés – később hozzáadható)
-
-🚀 1. Alkalmazás futtatása
+## 1. Alkalmazás futtatása
 
 A projekt indítása fejlesztői módban:
 
+```bash
 npm install
 npm run dev
+A böngészőben ezután megnyitható:
 
+http://localhost:5173
 
-Ezután a böngészőben nyisd meg:
-👉 http://localhost:5173
+A felületen megjelenik a „Hello, DevOps!” felirat.
 
-Itt látható a Hello, DevOps! felirat.
+2. Buildelés
+Production build készítése:
 
-🏗️ 2. Buildelés
-
-A production build elkészítése:
-
+bash
+Copy code
 npm run build
+A buildelt fájlok a dist/ mappába kerülnek.
 
-
-A buildelt statikus fájlok a dist/ mappába kerülnek.
-
-🐳 3. Dockerizálás
-
+3. Dockerizálás
 A projekt tartalmaz egy Dockerfile-t, amely:
 
 elkészíti a React buildet,
 
-Nginx-be csomagolja,
+Nginx szerverbe csomagolja,
 
-a konténer indulásakor automatikusan elindítja a szervert.
+és futtatáskor automatikusan elindítja a statikus tartalmat kiszolgáló szervert.
 
-Docker image buildelése:
+Docker image buildelése
+bash
+Copy code
 docker build -t hello-devops:v1 .
-
-Konténer futtatása:
+Konténer futtatása
+bash
+Copy code
 docker run --rm -p 8080:80 hello-devops:v1
+A böngészőben ekkor:
 
+http://localhost:8080
 
-Ezután a böngészőben:
-👉 http://localhost:8080
+4. Verziókezelés (Git)
+A projekt trunk-based szemléletet követ:
 
-🌿 4. Verziókezelés (Git)
+a main ág a trunk,
 
-A projekt trunk-based fejlesztési modellt követ:
+új módosítások külön feature/* branch-eken készülnek,
 
-main ág = trunk
+a commit üzenetek a változtatásokat egyértelműen rögzítik.
 
-új funkciók külön feature/* branch-eken
-
-merge vissza a main-re értelmes commit üzenetekkel
-
-Példa commitokra:
+Példák:
 
 feat: initial project setup
 
@@ -73,22 +70,23 @@ feat: add Hello DevOps message
 
 feat: add Dockerfile
 
-🛠️ 5. DevContainer (opcionális, bővítés)
+5. DevContainer (választott extra feladat)
+A projekt tartalmaz DevContainer konfigurációt, amely lehetővé teszi,
+hogy Visual Studio Code-ban konténeres fejlesztői környezetben fusson.
 
-A projekt kiegészíthető .devcontainer mappával, amely lehetővé teszi, hogy VS Code DevContainers-ben fusson.
+A .devcontainer mappa tartalmazza a konfigurációs fájlokat.
 
-(Kérésre ezt is elkészítem.)
+Összefoglalás
+A projekt teljesíti a beadandó DevOps követelményeit:
 
-✔ Összefoglalás
+HTTP-n elérhető alkalmazás
 
-Ez a projekt megfelel a beadandó DevOps követelményeinek:
-
-HTTP-n elérhető app
-
-Buildelhető
+buildelhető
 
 Docker konténer készíthető belőle
 
-Dokumentált parancsok
+dokumentált folyamatok
 
-Verziókezelési modell leírva"# T9LU1X-Devops-Beadando" 
+trunk-based verziókezelés
+
+opcionális DevContainer megvalósítva
