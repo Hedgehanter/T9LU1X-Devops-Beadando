@@ -32,26 +32,18 @@ Copy code
 npm run build
 A buildelt fájlok a dist/ mappába kerülnek.
 
-3. Dockerizálás
-A projekt tartalmaz egy Dockerfile-t, amely:
+## 3. Dockerizálás
 
-elkészíti a React buildet,
+A projekt tartalmaz egy `Dockerfile` fájlt, amelynek a célja, hogy a React-ből buildelt statikus fájlokat egy Nginx-alapú konténerből lehessen kiszolgálni.
 
-Nginx szerverbe csomagolja,
+### Docker image építése
 
-és futtatáskor automatikusan elindítja a statikus tartalmat kiszolgáló szervert.
-
-Docker image buildelése
-bash
-Copy code
 docker build -t hello-devops:v1 .
-Konténer futtatása
-bash
-Copy code
-docker run --rm -p 8080:80 hello-devops:v1
-A böngészőben ekkor:
 
-http://localhost:8080
+Konténer indítása
+docker run --rm -p 8080:80 hello-devops:v1
+
+A fenti parancsok futtatásához Docker telepítése szükséges. A konfiguráció úgy lett elkészítve, hogy elvileg egy ilyen környezetben az alkalmazás a http://localhost:8080 címen legyen elérhető.
 
 4. Verziókezelés (Git)
 A projekt trunk-based szemléletet követ:
